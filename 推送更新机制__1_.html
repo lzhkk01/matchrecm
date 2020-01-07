@@ -1,0 +1,576 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>推送更新机制 (1)</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/推送更新机制__1_/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
+    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script src="resources/scripts/prototypePre.js"></script>
+    <script src="data/document.js"></script>
+    <script src="resources/scripts/prototypePost.js"></script>
+    <script src="files/推送更新机制__1_/data.js"></script>
+    <script type="text/javascript">
+      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+    </script>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (矩形) -->
+      <div id="u89" class="ax_default _三级标题">
+        <div id="u89_div" class=""></div>
+        <div id="u89_text" class="text ">
+          <p><span>推荐机制</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u90" class="ax_default _文本段落">
+        <div id="u90_div" class=""></div>
+        <div id="u90_text" class="text ">
+          <p style="font-size:18px;"><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;">更新机制</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;"><br></span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">1. 比赛期间对赛事相关内容进行实时更新；</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">2. 比赛结果：比赛结束后5分钟内更新完成；</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">3. 推荐赛事（升窗首页）：</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">&nbsp;&nbsp; &nbsp; &#149; 每一局结束后5分钟内更新</span><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;">比分</span><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">和</span><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;">标题</span><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">；</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">&nbsp;&nbsp; &nbsp; &#149; 本场对阵结束后</span><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;">5分钟</span><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">内推荐下一场焦点对阵（如果有）；</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">&nbsp;&nbsp; &nbsp; &#149; 根据比赛重要性判断是否提前推荐一下场对阵；</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;"><br></span></p><p style="font-size:18px;"><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;">赛事活动</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;"><br></span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">1. 针对不同赛事推出对应活动，开赛前一周提前准备；</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">2. 尽量策划周期较长、形式可复用的活动；</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;"><br></span></p><p style="font-size:18px;"><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;">模板消息推送次数</span></p><p style="font-size:18px;"><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;"><br></span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;">根据赛事级别和用户订阅情况，向用户推送模板消息</span></p><p style="font-size:13px;"><span style="font-family:'Arial Normal', 'Arial';font-weight:400;"><br></span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (表格) -->
+      <div id="u91" class="ax_default">
+
+        <!-- Unnamed (单元格) -->
+        <div id="u92" class="ax_default table_cell">
+          <img id="u92_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u92_text" class="text ">
+            <p><span>赛事名称</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u93" class="ax_default table_cell">
+          <img id="u93_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u93_text" class="text ">
+            <p><span>级别</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u94" class="ax_default table_cell">
+          <img id="u94_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u94_text" class="text ">
+            <p><span>英雄联盟世界总决赛（S系列赛）</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u95" class="ax_default table_cell">
+          <img id="u95_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u95_text" class="text ">
+            <p><span>S</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u96" class="ax_default table_cell">
+          <img id="u96_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u96_text" class="text ">
+            <p><span>DOTA2国际邀请赛</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u97" class="ax_default table_cell">
+          <img id="u97_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u97_text" class="text ">
+            <p><span>S</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u98" class="ax_default table_cell">
+          <img id="u98_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u98_text" class="text ">
+            <p><span>英雄联盟全明星赛</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u99" class="ax_default table_cell">
+          <img id="u99_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u99_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u100" class="ax_default table_cell">
+          <img id="u100_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u100_text" class="text ">
+            <p><span>LPL</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u101" class="ax_default table_cell">
+          <img id="u101_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u101_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u102" class="ax_default table_cell">
+          <img id="u102_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u102_text" class="text ">
+            <p><span>DOTA2 Major系列赛</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u103" class="ax_default table_cell">
+          <img id="u103_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u103_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u104" class="ax_default table_cell">
+          <img id="u104_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u104_text" class="text ">
+            <p><span>英雄联盟季中冠军赛</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u105" class="ax_default table_cell">
+          <img id="u105_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u105_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u106" class="ax_default table_cell">
+          <img id="u106_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u106_text" class="text ">
+            <p><span>英雄联盟洲际赛</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u107" class="ax_default table_cell">
+          <img id="u107_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u107_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u108" class="ax_default table_cell">
+          <img id="u108_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u108_text" class="text ">
+            <p><span>绝地求生PGC世界总决赛</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u109" class="ax_default table_cell">
+          <img id="u109_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u109_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u110" class="ax_default table_cell">
+          <img id="u110_img" class="img " src="images/推送更新机制__1_/u92.png"/>
+          <div id="u110_text" class="text ">
+            <p><span>各种杯赛</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u111" class="ax_default table_cell">
+          <img id="u111_img" class="img " src="images/推送更新机制__1_/u93.png"/>
+          <div id="u111_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u112" class="ax_default table_cell">
+          <img id="u112_img" class="img " src="images/推送更新机制__1_/u112.png"/>
+          <div id="u112_text" class="text ">
+            <p><span>DOTA2 Minor系列赛</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u113" class="ax_default table_cell">
+          <img id="u113_img" class="img " src="images/推送更新机制__1_/u113.png"/>
+          <div id="u113_text" class="text ">
+            <p><span>B</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u114" class="ax_default _文本段落">
+        <div id="u114_div" class=""></div>
+        <div id="u114_text" class="text ">
+          <p><span>赛事级别</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u115" class="ax_default _文本段落">
+        <div id="u115_div" class=""></div>
+        <div id="u115_text" class="text ">
+          <p><span>微信推送机制</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (矩形) -->
+      <div id="u116" class="ax_default _文本段落">
+        <div id="u116_div" class=""></div>
+        <div id="u116_text" class="text ">
+          <p><span>桌面推送机制</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (表格) -->
+      <div id="u117" class="ax_default">
+
+        <!-- Unnamed (单元格) -->
+        <div id="u118" class="ax_default table_cell">
+          <img id="u118_img" class="img " src="images/推送更新机制__1_/u118.png"/>
+          <div id="u118_text" class="text ">
+            <p><span>级别</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u119" class="ax_default table_cell">
+          <img id="u119_img" class="img " src="images/推送更新机制__1_/u119.png"/>
+          <div id="u119_text" class="text ">
+            <p><span>未订阅</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u120" class="ax_default table_cell">
+          <img id="u120_img" class="img " src="images/推送更新机制__1_/u120.png"/>
+          <div id="u120_text" class="text ">
+            <p><span>内容</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u121" class="ax_default table_cell">
+          <img id="u121_img" class="img " src="images/推送更新机制__1_/u121.png"/>
+          <div id="u121_text" class="text ">
+            <p><span>已订阅</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u122" class="ax_default table_cell">
+          <img id="u122_img" class="img " src="images/推送更新机制__1_/u122.png"/>
+          <div id="u122_text" class="text ">
+            <p><span>内容</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u123" class="ax_default table_cell">
+          <img id="u123_img" class="img " src="images/推送更新机制__1_/u123.png"/>
+          <div id="u123_text" class="text ">
+            <p><span>S</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u124" class="ax_default table_cell">
+          <img id="u124_img" class="img " src="images/推送更新机制__1_/u124.png"/>
+          <div id="u124_text" class="text ">
+            <p><span>第1次：最近1场比赛开赛前1小时</span></p><p><span>第2次：最近1场比赛开始</span></p><p><span>第3次：全部比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u125" class="ax_default table_cell">
+          <img id="u125_img" class="img " src="images/推送更新机制__1_/u125.png"/>
+          <div id="u125_text" class="text ">
+            <p><span>第1次：开赛预告，预测活动，直播链接，比赛前瞻</span></p><p><span>第2次：开赛通知，直播链接</span></p><p><span>第3次：比赛赛果，赛果链接，精彩回放</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u126" class="ax_default table_cell">
+          <img id="u126_img" class="img " src="images/推送更新机制__1_/u126.png"/>
+          <div id="u126_text" class="text ">
+            <p><span>第1次：最近1场比赛开赛前1小时</span></p><p><span>第2次：最近1场比赛开始</span></p><p><span>第3次：订阅比赛开始</span></p><p><span>第4次：订阅比赛结束</span></p><p><span>……</span></p><p><span>第N次：订阅比赛结束</span></p><p><span>第N+1次：全部比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u127" class="ax_default table_cell">
+          <img id="u127_img" class="img " src="images/推送更新机制__1_/u127.png"/>
+          <div id="u127_text" class="text ">
+            <p><span>第1次：开赛预告，预测活动，直播链接，比赛前瞻</span></p><p><span>第2次：开赛通知，直播链接</span></p><p><span>第3次：订阅比赛开赛通知，直播链接</span></p><p><span>第4次：订阅比赛赛果，赛果链接，精彩回放</span></p><p><span>……</span></p><p><span>第N次：比赛赛果，赛果链接，精彩回放</span></p><p><span>第N+1次：全场比赛赛果，赛果链接，精彩回放</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u128" class="ax_default table_cell">
+          <img id="u128_img" class="img " src="images/推送更新机制__1_/u128.png"/>
+          <div id="u128_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u129" class="ax_default table_cell">
+          <img id="u129_img" class="img " src="images/推送更新机制__1_/u129.png"/>
+          <div id="u129_text" class="text ">
+            <p><span>第1次：开赛前半小时</span></p><p><span>第2次：全部比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u130" class="ax_default table_cell">
+          <img id="u130_img" class="img " src="images/推送更新机制__1_/u130.png"/>
+          <div id="u130_text" class="text ">
+            <p><span>第1次：开赛预告，预测活动，直播链接，比赛前瞻</span></p><p><span>第2次：比赛赛果，赛果链接，精彩回放</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u131" class="ax_default table_cell">
+          <img id="u131_img" class="img " src="images/推送更新机制__1_/u131.png"/>
+          <div id="u131_text" class="text ">
+            <p><span>第1次：最近1场比赛开赛前半小时</span></p><p><span>第2次：订阅比赛开始</span></p><p><span>第3次：订阅比赛结束</span></p><p><span>……</span></p><p><span>第N次：订阅比赛结束</span></p><p><span>第N+1次：全部比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u132" class="ax_default table_cell">
+          <img id="u132_img" class="img " src="images/推送更新机制__1_/u132.png"/>
+          <div id="u132_text" class="text ">
+            <p><span>第1次：开赛预告，比赛看点</span></p><p><span>第2次：订阅比赛对阵，直播链接</span></p><p><span>第3次：订阅比赛赛果，赛果链接</span></p><p><span>……</span></p><p><span>第N次：订阅比赛赛果，赛果链接</span></p><p><span>第N+1次：比赛赛果，赛果链接</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u133" class="ax_default table_cell">
+          <img id="u133_img" class="img " src="images/推送更新机制__1_/u133.png"/>
+          <div id="u133_text" class="text ">
+            <p><span>B</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u134" class="ax_default table_cell">
+          <img id="u134_img" class="img " src="images/推送更新机制__1_/u134.png"/>
+          <div id="u134_text" class="text ">
+            <p><span>第1次：最近1场比赛开赛前1小时</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u135" class="ax_default table_cell">
+          <img id="u135_img" class="img " src="images/推送更新机制__1_/u135.png"/>
+          <div id="u135_text" class="text ">
+            <p><span>第1次：开赛预告，预测活动，直播链接，比赛前瞻</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u136" class="ax_default table_cell">
+          <img id="u136_img" class="img " src="images/推送更新机制__1_/u136.png"/>
+          <div id="u136_text" class="text ">
+            <p><span>第1次：订阅比赛开始</span></p><p><span>第2次：订阅比赛结束</span></p><p><span>……</span></p><p><span>第N次：订阅比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u137" class="ax_default table_cell">
+          <img id="u137_img" class="img " src="images/推送更新机制__1_/u137.png"/>
+          <div id="u137_text" class="text ">
+            <p><span>第1次：订阅比赛开赛通知，直播链接</span></p><p><span>第2次：订阅比赛赛果，赛果链接，精彩回放</span></p><p><span>……</span></p><p><span>第N次：订阅比赛赛果，赛果链接，精彩回放</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unnamed (表格) -->
+      <div id="u138" class="ax_default">
+
+        <!-- Unnamed (单元格) -->
+        <div id="u139" class="ax_default table_cell">
+          <img id="u139_img" class="img " src="images/推送更新机制__1_/u118.png"/>
+          <div id="u139_text" class="text ">
+            <p><span>级别</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u140" class="ax_default table_cell">
+          <img id="u140_img" class="img " src="images/推送更新机制__1_/u119.png"/>
+          <div id="u140_text" class="text ">
+            <p><span>未订阅</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u141" class="ax_default table_cell">
+          <img id="u141_img" class="img " src="images/推送更新机制__1_/u120.png"/>
+          <div id="u141_text" class="text ">
+            <p><span>内容</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u142" class="ax_default table_cell">
+          <img id="u142_img" class="img " src="images/推送更新机制__1_/u121.png"/>
+          <div id="u142_text" class="text ">
+            <p><span>已订阅</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u143" class="ax_default table_cell">
+          <img id="u143_img" class="img " src="images/推送更新机制__1_/u122.png"/>
+          <div id="u143_text" class="text ">
+            <p><span>内容</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u144" class="ax_default table_cell">
+          <img id="u144_img" class="img " src="images/推送更新机制__1_/u123.png"/>
+          <div id="u144_text" class="text ">
+            <p><span>S</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u145" class="ax_default table_cell">
+          <img id="u145_img" class="img " src="images/推送更新机制__1_/u124.png"/>
+          <div id="u145_text" class="text ">
+            <p><span>第1次：最近1场比赛开赛前1小时</span></p><p><span>第2次：最近1场比赛开始</span></p><p><span>第3次：全部比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u146" class="ax_default table_cell">
+          <img id="u146_img" class="img " src="images/推送更新机制__1_/u125.png"/>
+          <div id="u146_text" class="text ">
+            <p><span>第1次：开赛预告，预测活动，直播链接，比赛前瞻</span></p><p><span>第2次：开赛通知，直播链接</span></p><p><span>第3次：比赛赛果，赛果链接，精彩回放</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u147" class="ax_default table_cell">
+          <img id="u147_img" class="img " src="images/推送更新机制__1_/u126.png"/>
+          <div id="u147_text" class="text ">
+            <p><span>第1次：最近1场比赛开赛前1小时</span></p><p><span>第2次：最近1场比赛开始</span></p><p><span>第3次：订阅比赛开始</span></p><p><span>第4次：订阅比赛结束</span></p><p><span>……</span></p><p><span>第N次：订阅比赛结束</span></p><p><span>第N+1次：全部比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u148" class="ax_default table_cell">
+          <img id="u148_img" class="img " src="images/推送更新机制__1_/u127.png"/>
+          <div id="u148_text" class="text ">
+            <p><span>第1次：开赛预告，预测活动，直播链接，比赛前瞻</span></p><p><span>第2次：开赛通知，直播链接</span></p><p><span>第3次：订阅比赛开赛通知，直播链接</span></p><p><span>第4次：订阅比赛赛果，赛果链接，精彩回放</span></p><p><span>……</span></p><p><span>第N次：比赛赛果，赛果链接，精彩回放</span></p><p><span>第N+1次：全场比赛赛果，赛果链接，精彩回放</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u149" class="ax_default table_cell">
+          <img id="u149_img" class="img " src="images/推送更新机制__1_/u128.png"/>
+          <div id="u149_text" class="text ">
+            <p><span>A</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u150" class="ax_default table_cell">
+          <img id="u150_img" class="img " src="images/推送更新机制__1_/u129.png"/>
+          <div id="u150_text" class="text ">
+            <p><span>第1次：开赛前半小时</span></p><p><span>第2次：全部比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u151" class="ax_default table_cell">
+          <img id="u151_img" class="img " src="images/推送更新机制__1_/u130.png"/>
+          <div id="u151_text" class="text ">
+            <p><span>第1次：开赛预告，预测活动，直播链接，比赛前瞻</span></p><p><span>第2次：比赛赛果，赛果链接，精彩回放</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u152" class="ax_default table_cell">
+          <img id="u152_img" class="img " src="images/推送更新机制__1_/u131.png"/>
+          <div id="u152_text" class="text ">
+            <p><span>第1次：最近1场比赛开赛前半小时</span></p><p><span>第2次：订阅比赛开始</span></p><p><span>第3次：订阅比赛结束</span></p><p><span>……</span></p><p><span>第N次：订阅比赛结束</span></p><p><span>第N+1次：全部比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u153" class="ax_default table_cell">
+          <img id="u153_img" class="img " src="images/推送更新机制__1_/u132.png"/>
+          <div id="u153_text" class="text ">
+            <p><span>第1次：开赛预告，比赛看点</span></p><p><span>第2次：订阅比赛对阵，直播链接</span></p><p><span>第3次：订阅比赛赛果，赛果链接</span></p><p><span>……</span></p><p><span>第N次：订阅比赛赛果，赛果链接</span></p><p><span>第N+1次：比赛赛果，赛果链接</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u154" class="ax_default table_cell">
+          <img id="u154_img" class="img " src="images/推送更新机制__1_/u133.png"/>
+          <div id="u154_text" class="text ">
+            <p><span>B</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u155" class="ax_default table_cell">
+          <img id="u155_img" class="img " src="images/推送更新机制__1_/u134.png"/>
+          <div id="u155_text" class="text ">
+            <p><span>第1次：最近1场比赛开赛前1小时</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u156" class="ax_default table_cell">
+          <img id="u156_img" class="img " src="images/推送更新机制__1_/u135.png"/>
+          <div id="u156_text" class="text ">
+            <p><span>第1次：开赛预告，预测活动，直播链接，比赛前瞻</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u157" class="ax_default table_cell">
+          <img id="u157_img" class="img " src="images/推送更新机制__1_/u136.png"/>
+          <div id="u157_text" class="text ">
+            <p><span>第1次：订阅比赛开始</span></p><p><span>第2次：订阅比赛结束</span></p><p><span>……</span></p><p><span>第N次：订阅比赛结束</span></p>
+          </div>
+        </div>
+
+        <!-- Unnamed (单元格) -->
+        <div id="u158" class="ax_default table_cell">
+          <img id="u158_img" class="img " src="images/推送更新机制__1_/u137.png"/>
+          <div id="u158_text" class="text ">
+            <p><span>第1次：订阅比赛开赛通知，直播链接</span></p><p><span>第2次：订阅比赛赛果，赛果链接，精彩回放</span></p><p><span>……</span></p><p><span>第N次：订阅比赛赛果，赛果链接，精彩回放</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
